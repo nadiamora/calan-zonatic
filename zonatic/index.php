@@ -37,7 +37,8 @@
 
         $db = new Database();
         $query = $db->connect()->prepare('SELECT  *FROM usuario WHERE numControl = :numControl AND contrasena = :contrasena');
-        $query->execute(['numControl' => $numControl, 'contrasena' => $contrasena]);
+		$query->execute(['numControl' => $numControl, 'contrasena' => $contrasena]);
+	
 
         $row = $query->fetch(PDO::FETCH_NUM);
         
@@ -99,6 +100,8 @@
 	$apellidoPat = $_POST ['apellidoPat'];
 	$apellidoMat = $_POST ['apellidoMat'];
 	$contrasena = $_POST ['contrasena'];	
+
+
     
     /*Agregar datos a la BD*/
     $sql = "INSERT INTO usuario (numControl, idUsuario, correo, nombre, apellidoPat, apellidoMat, contrasena) VALUES ('$numControl', '$idUsuario', '$correo', '$nombre', '$apellidoPat', '$apellidoMat', '$contrasena')"; 
@@ -292,9 +295,9 @@ $conexion->close();
 															<select class="form-control" name="idUsuario" id="idUsuario">
 										
 																<option value="1"> Usuario</option>
-																<option value="2">Revisor contenido</option>
-																<option value="3">Revisor estilo</option>
-																<option value="4">Administrador</option>
+																<option value="2">Administrador</option>
+																<option value="3">Revisor de contenido</option>
+																<option value="4">Revisor de estilo</option>
 															</select>
 														</div>
 															<input type="submit" class="btn btn-primary"  value="Registrar">
@@ -455,7 +458,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo.jpg" width="auto" height="170"
+							<img src="img/ejemplo.jpg" width="auto" height="170"
 								class="card-img-top" alt="No se pudo Encontrar el Artículo"/>
 							<div class="card-body">
 								<h5 class="card-title">Artículo</h5>
@@ -473,7 +476,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo9.jpg" width="auto"
+							<img src="img/ejemplo9.jpg" width="auto"
 								height="170" class="card-img-top"
 								alt="No se pudo Encontrar el Artículo">
 							<div class="card-body">
@@ -492,7 +495,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo4.jpg" width="auto"
+							<img src="img/ejemplo4.jpg" width="auto"
 								height="170" class="card-img-top"
 								alt="No se pudo Encontrar el Artículo"/>
 							<div class="card-body">
@@ -515,7 +518,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo5.jpg" width="auto"
+							<img src="img/ejemplo5.jpg" width="auto"
 								height="170" class="card-img-top"
 								alt="No se pudo Encontrar el Artículo">
 							<div class="card-body">
@@ -534,7 +537,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo6.jpg" width="auto"
+							<img src="img/ejemplo6.jpg" width="auto"
 								height="170" class="card-img-top"
 								alt="No se pudo Encontrar el Artículo"/>
 							<div class="card-body">
@@ -553,7 +556,7 @@ $conexion->close();
 				<div class="row margen">
 					<div class="col-md-11 subar">
 						<div class="card1" style="width: auto; height: auto;">
-							<img src="${pageContext.request.contextPath}/resources/img/ejemplo7.jpg" width="auto"
+							<img src=img/ejemplo7.jpg width="auto"
 								height="170" class="card-img-top"
 								alt="No se pudo Encontrar el Artículo"/>
 							<div class="card-body">
@@ -589,32 +592,33 @@ $conexion->close();
 			</nav>
 
 		</div>
-
-		<!--Footer-->
-		<div class="col-md-12 pie">
-                <footer>
-                    <h4>©Derechos Reservados 2019</h4>
-                    Universidad Tecnologíca del Norte de Guanajuato.
-                </footer>
-
-                <div class="linkUTN">
-
-                    <a title="UTNG" href="https://www.utng.edu.mx/">
-                    <img class="linkUTNG" width="15%" src="${pageContext.request.contextPath}/resources/img/linkUTNG.png" alt="UTNG" />
-                    </a>
-
-                </div>
-                <div class="linkfacebook">
-
-                    <a title="UTNG" href="https://es-la.facebook.com/UTNGDOLORESHIDALGO-222209577812067/">
-                    <img class="linkUTNG" width="8%" src="${pageContext.request.contextPath}/resources/img/logofacebook.png" alt="UTNG" />
-                    </a>
-                    
-                </div>
-
-            </div>
-          <!--Fin del footer-->
-
+		<div class="row margen">
+				<!--Footer-->
+				<div class="col-md-12 pie">
+					<footer>
+						<h4>©Derechos Reservados 2019</h4>
+						Universidad Tecnologíca del Norte de Guanajuato.
+					</footer>
+  
+					<div class="linkUTN">
+  
+						<a title="UTNG" href="https://www.utng.edu.mx/">
+						<img class="linkUTNG" width="15%" src="img/linkUTNG.png" alt="UTNG" />
+						</a>
+  
+					</div>
+					<div class="linkfacebook">
+  
+						<a title="UTNG" href="https://es-la.facebook.com/UTNGDOLORESHIDALGO-222209577812067/">
+						<img class="linkUTNG" width="8%" src="img/logofacebook.png" alt="UTNG" />
+						</a>
+					  
+					</div>
+  
+				</div>
+			  <!--Fin del footer-->
+  
+			</div>
 	</section>
 </body>
 
