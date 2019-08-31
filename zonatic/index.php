@@ -42,12 +42,12 @@
 
         $row = $query->fetch(PDO::FETCH_NUM);
         
-        if($row == true){
+        if($row == true){ 
             $idUsuario = $row[1];
             
-            $_SESSION['idUsuario'] = $idUsuario;
-            switch($idUsuario){
-                case 1:
+			$_SESSION['idUsuario']= $idUsuario;
+			switch($idUsuario){
+				case 1:
                     header('location: usuarios/misarticulos.php');
                 break;
 
@@ -115,10 +115,6 @@
       include_once 'index.php';
     }
 
-
-    
-
-
   if ($conexion->query($sql) === true){
     $message = 'Tu usuario ha sido creado exitosamente';
 } else{
@@ -175,7 +171,7 @@ $conexion->close();
 										href="/zonatic">Inicio <span class="sr-only">(current)</span></a>
 									</li>
 									<li class="nav-item"><a class="nav-link"
-										href="quienessomos">Quienes Somos</a></li>
+										href="index/quienessomos.php">Quienes Somos</a></li>
 									<li class="nav-item">
 								</ul>
 								<!-- Button trigger modal -->
@@ -208,11 +204,11 @@ $conexion->close();
 													}
 													?>
 												<div>
-													<input type="text" name="numControl" id="numControl" class="form-control" placeholder="Número de control"/>
+													<input type="text" name="numControl" id="numControl" class="form-control" placeholder="Número de control" required/>
 												</div><br>
 
 												<div>
-													<input type="password" name="contrasena" class="form-control" id="contrasena" placeholder="Contraseña"/>
+													<input type="password" name="contrasena" class="form-control" id="contrasena" placeholder="Contraseña" required/>
 												</div>	<br>
 												<div>
 													<input type="submit" class="btn btn-primary"  value="Iniciar Sesión" >
@@ -259,40 +255,40 @@ $conexion->close();
 												  ?>
 															<div class="form-group">
 																<label for="correo">E-mail</label> 
-																<input type="email" class="form-control" name="correo" id="correo" placeholder="nombre@ejemplo.com">
+																<input type="email" class="form-control" name="correo" id="correo" placeholder="nombre@ejemplo.com" required>
 															</div>
 															<div class="form-group row">
 																<label for="contrasenaRegistrar" class="col-sm-2 col-form-label">Contraseña</label>
 																<div class="col-sm-10">
-																	<input type="password" class="form-control" name="contrasena" id="contrasenaRegistrar" placeholder="">
+																	<input type="password" class="form-control" name="contrasena" id="contrasenaRegistrar" placeholder="" required>
 																</div>
 															</div>
 															<div class="form-group row">
 																<label for="recontrasena" class="col-sm-2 col-form-label">Confirmar
 																	contraseña</label>
 																<div class="col-sm-10">
-																	<input type="password" class="form-control" name="confirmarContrasena" id="recontrasena" placeholder="">
+																	<input type="password" class="form-control" name="confirmarContrasena" id="recontrasena" placeholder="" required>
 																</div>
 															</div>
 															<div class="form-group">
 																<label for="nombre">Nombre Usuario</label> 
-																<input type="text" class="form-control" name="nombre" id="nombre" placeholder="">
+																<input type="text" class="form-control" name="nombre" id="nombre" placeholder="" required>
 															</div>
 															<div class="form-group">
 																<label for="apellidoPat">Apellido Paterno</label>
-																<input type="text" class="form-control" name="apellidoPat" id="apellidoPat" placeholder="">
+																<input type="text" class="form-control" name="apellidoPat" id="apellidoPat" placeholder="" required>
 															</div>
 															<div class="form-group">
 																<label for="apellidoMat">Apellido Materno</label>
-																<input type="text" class="form-control" name="apellidoMat" id="apellidoMat" placeholder="">
+																<input type="text" class="form-control" name="apellidoMat" id="apellidoMat" placeholder="" required>
 															</div>
 															<div class="form-group">
 																<label for="numControlRegistrar">Número de
 																	control</label> <input type="text" class="form-control" name="numControl" id="numControlRegistrar"
-																	placeholder="">
+																	placeholder="" required>
 															</div>
 															<p>Escoja algún tipo de usuario</p>
-															<select class="form-control" name="idUsuario" id="idUsuario">
+															<select class="form-control" name="idUsuario" id="idUsuario" required>
 										
 																<option value="1"> Usuario</option>
 																<option value="2">Administrador</option>
@@ -325,8 +321,8 @@ $conexion->close();
 			<div class="col-md header2">
 				<h1 class="entrada">Bienvenido a ZonaTIC</h1>
 				<p class="lead">
-					<b> <marquee behavior=alternate>Dale un vistazo a los
-							artículos más relevantes del momento</marquee>
+					<b> 
+						<marquee behavior=alternate>Dale un vistazo a los artículos más relevantes del momento</marquee>
 					</b>
 				</p>
 	
@@ -419,13 +415,13 @@ $conexion->close();
 						aria-expanded="false"> Categorías </a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							<a class="dropdown-item "
-								href="conocimientosgenerales">Conocimientos
+								href="index/conocimientosgenerales.php">Conocimientos
 								generales TI</a> <a class="dropdown-item "
-								href="conocimentosespecializados">Conocimientos
+								href="index/conocimentosespecializados.php">Conocimientos
 								especializados</a> <a class="dropdown-item "
-								href="tialavanguardia">TI a la vanguardia</a> <a
+								href="index/tialavanguardia.php">TI a la vanguardia</a> <a
 								class="dropdown-item "
-								href="noticiasyeventos">Noticias y
+								href="index/noticiasyeventos.php">Noticias y
 								eventos TIC</a>
 						</div></li>
 
@@ -448,150 +444,64 @@ $conexion->close();
 
 		</div>
 
+		 <!--Inicio del contenido-->
+
+		 <div class="container">
+            <!--Buscador-->
+   
+        
+        
+        <div class="container">
+            <!--Buscador-->
+            
+                <div class="col-md-12" style="margin-top: auto;">
+                   
+               <?php
+                 include_once 'paginas.php';
+
+                $articulo = new Articulo(4);        
+               ?>
+
+                <!-- Fila  -->
+               <div class="row">
+                <div class="col-md-12" id="container">
+                    <?php
+                    echo $articulo->mostrarTotalResultados() . " resultados totales <br/>";
+                    ?>
+                    </div> 
+               </div>
+               
+                  
+               
+               <div class="row">
+                    <?php
+                       $articulo->mostrarArticulo();
+                    ?>
+               </div>
+                
 
 
-		<!--Contenido-->
-		<div class="row margen">
+               
+               <div class="row mas">
+				   
+                   <div class="col-md-12" id="paginas" style="text-align: right; ">
+                       <?php
+                          $articulo->mostrarPaginas();
+                       ?>
+                   </div>
+			   </div>
+												
+                
+            </div>
+        </div>    
+        
+              
 
-			<!--Articulos-->
-			<div class="col-md-6 articulo">
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src="img/ejemplo.jpg" width="auto" height="170"
-								class="card-img-top" alt="No se pudo Encontrar el Artículo"/>
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
 
-				</div>
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src="img/ejemplo9.jpg" width="auto"
-								height="170" class="card-img-top"
-								alt="No se pudo Encontrar el Artículo">
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+            </div>
+        <!--Fin del contenido-->
 
-				</div>
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src="img/ejemplo4.jpg" width="auto"
-								height="170" class="card-img-top"
-								alt="No se pudo Encontrar el Artículo"/>
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="col-md-6 articulo">
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src="img/ejemplo5.jpg" width="auto"
-								height="170" class="card-img-top"
-								alt="No se pudo Encontrar el Artículo">
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src="img/ejemplo6.jpg" width="auto"
-								height="170" class="card-img-top"
-								alt="No se pudo Encontrar el Artículo"/>
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<div class="row margen">
-					<div class="col-md-11 subar">
-						<div class="card1" style="width: auto; height: auto;">
-							<img src=img/ejemplo7.jpg width="auto"
-								height="170" class="card-img-top"
-								alt="No se pudo Encontrar el Artículo"/>
-							<div class="card-body">
-								<h5 class="card-title">Artículo</h5>
-								<p class="card-text">Aquí va un resumen breve del artículo.</p>
-
-								<ul class="navbar-nav mr-auto">
-									<li class="nav-item active"><a class="nav-link"
-										href="articulo"><button
-												class="enlacearticulo" type="submit">Ir a</button></a></li>
-								</ul>
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
-			<nav class="mas">
-				<div class="col-md-4"></div>
-				<ul class="pagination">
-					<li class="page-item"><a class="page-link" href="#"
-						tabindex="-1" aria-disabled="true">Anterior</a></li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item active" aria-current="page"><a
-						class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#"
-						tabindex="1" aria-disabled="true">Siguiente</a></li>
-
-				</ul>
-			</nav>
-
-		</div>
+		
 		<div class="row margen">
 				<!--Footer-->
 				<div class="col-md-12 pie">
