@@ -14,11 +14,17 @@
     if(isset($_SESSION['idUsuario'])){
         switch($_SESSION['idUsuario']){
             case 1:
-                header('location: usuarios/nosotros.php');
+                header('location: usuarios/misarticulos.php');
             break;
 
             case 2:
                 header('location: administrador/solicitudes.php');
+			break;
+			case 3:
+                header('location: revisor/agregar.php');
+			break;
+			case 4:
+                header('location: revisor/agregar.php');
             break;
 
             default:
@@ -41,12 +47,20 @@
             $_SESSION['idUsuario'] = $idUsuario;
             switch($idUsuario){
                 case 1:
-                    header('location: usurios/misarticulo.php');
+                    header('location: usuarios/misarticulos.php');
                 break;
 
                 case 2:
-                header('location: administrador/solicitudes.php');
-                break;
+                	header('location: administrador/solicitudes.php');
+				break;
+
+				case 3:
+                	header('location: revisor/agregar.php');
+				break;
+				
+				case 4:
+                	header('location: revisor/agregar.php');
+            	break;
 
                 default:
             }
@@ -204,7 +218,7 @@ $conexion->close();
 	
 	
 	
-												<a class="nav-link" href="recuperar">Recuperar
+												<a class="nav-link" href="index/recuperar.php">Recuperar
 													contraseña</a>
 	
 											</div>
